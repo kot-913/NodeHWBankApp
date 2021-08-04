@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config'
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './modules/user/users.module';
@@ -13,7 +12,7 @@ require('dotenv').config();
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5432,
+      port: 5433,
       username: 'admin',
       password: 'password',
       database: 'bankApi',

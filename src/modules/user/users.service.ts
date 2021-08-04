@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { User } from './users.entity';
-import { hash} from 'bcrypt';
+// import { hash} from 'bcrypt';
 import { AccountsService } from '../accounts/accounts.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -20,10 +20,10 @@ export class UsersService {
              if(existedUser){
                 throw new BadRequestException("Email is already in use!");
              }
-             const hashedPassword = await hash(userDto.password, 10);
-             const user = await this.usersRepository.save({...userDto, password: hashedPassword});
+            //  const hashedPassword = await hash(userDto.password, 10);
+            //  const user = await this.usersRepository.save({...userDto, password: hashedPassword});
              
-             return user;
+             return {} as User;
         } catch (e) {
             console.error("e", e);
         }
